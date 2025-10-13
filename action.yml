@@ -1,0 +1,34 @@
+name: "CS50 CI"
+description: "Continuous Integration workflow for testing CS50 problem sets"
+author: "Leon Kleinschmidt"
+
+inputs:
+  app-id:
+    description: "GitHub App ID used to authenticate"
+    required: true
+  install-id:
+    description: "GitHub App Installation ID"
+    required: true
+  private-key:
+    description: "GitHub App private key (B64)"
+    required: true
+  problems-repository: 
+    description: "Full name of the repository containing the problems tests (e.g. cs50/problems)"
+    required: true
+  solutions-repository:
+    description: "Full name of the repository containing the solution (e.g. cs50/solutions)"
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.app-id }}
+    - ${{ inputs.install-id }}
+    - ${{ inputs.private-key }}
+    - ${{ inputs.problems-repository }}
+    - ${{ inputs.solutions-repository }}
+
+branding:
+  icon: "check-circle"
+  color: "blue"
