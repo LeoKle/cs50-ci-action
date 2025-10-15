@@ -1,5 +1,6 @@
 from github.auth import GithubAuthProvider
 from github.cloner import GithubRepoCloner
+from github.commenter import GitHubPRCommenter
 from settings import Settings
 from testing.problem import ProblemTester
 
@@ -29,3 +30,7 @@ if __name__ == "__main__":
     print(f"✅\tPassed: {passed}")
     print(f"🔴\tFailed: {failed}")
     print(f"⚠️\tWarnings: {warns}")
+
+    commenter = GitHubPRCommenter(token=gh_token)
+    commenter.post_comment("Test")
+    commenter.post_comment("Test2")
