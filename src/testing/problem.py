@@ -15,7 +15,10 @@ def valid_subdirs(path: Path):
 
 def _default_runner(problem_dir: Path, solution_dir: Path):
     return subprocess.run(
-        ["check50", "--dev", str(problem_dir)], cwd=solution_dir, capture_output=True, text=True
+        ["uv", "run", "check50", "--dev", str(problem_dir)],
+        cwd=solution_dir,
+        capture_output=True,
+        text=True,
     )
 
 
