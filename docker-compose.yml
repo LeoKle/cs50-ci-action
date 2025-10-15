@@ -1,0 +1,8 @@
+services:
+  cs50-ci:
+    build: .
+    container_name: cs50-ci-action
+    env_file:
+      - .env
+    restart: "no"
+    tty: true

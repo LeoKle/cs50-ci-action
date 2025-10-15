@@ -6,7 +6,9 @@ WORKDIR /app
 
 COPY src/ ./src
 COPY pyproject.toml .
+COPY uv.lock .
 
-RUN uv sync
+RUN uv sync --frozen --no-cache
+ENV PATH="/app/.venv/bin:$PATH"
 
 ENTRYPOINT ["python", "./src/main.py"]
