@@ -3,6 +3,7 @@ from github.cloner import GithubRepoCloner
 from github.commenter import GitHubPRCommenter
 from settings import Settings
 from testing.problem import ProblemTester
+from utils.markdown import build_results_markdown
 
 if __name__ == "__main__":
     Settings()
@@ -26,11 +27,13 @@ if __name__ == "__main__":
     warns = sum(1 for r in results if r.status == "warning")
     total = len(results)
 
-    print(f"\nProblem Summary: {total} total")
+    print(f"\nTest Summary: {total} total")
     print(f"✅\tPassed: {passed}")
     print(f"🔴\tFailed: {failed}")
     print(f"⚠️\tWarnings: {warns}")
 
+    markdown = build_results_markdown(results)
+
     commenter = GitHubPRCommenter(token=gh_token)
-    commenter.post_comment("Test")
-    commenter.post_comment("Test2")
+
+    commenter.post_comment(markdown)
