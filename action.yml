@@ -31,7 +31,7 @@ runs:
   env:
     APP_ID: ${{ inputs.app-id }}
     INSTALL_ID: ${{ inputs.install-id }}
-    PRIVATE_KEY: ${{ inputs.private-key }}
+    PRIVATE_KEY_B64: ${{ inputs.private-key }}
     PROBLEMS_REPO: ${{ inputs.problems-repository }}
     PROBLEMS_BRANCH: ${{ inputs.problems-branch }}
     SOLUTIONS_REPO: ${{ inputs.solutions-repository }}
