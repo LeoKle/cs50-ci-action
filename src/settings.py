@@ -1,10 +1,16 @@
+import os
+
+from dotenv import load_dotenv
+
 from meta.singleton import SingletonMeta
+
+load_dotenv()
 
 
 class Settings(metaclass=SingletonMeta):
     def __init__(self, **kwargs):
-        self.app_id = kwargs["app_id"]
-        self.install_id = kwargs["install_id"]
-        self.private_key = kwargs["private_key"]
-        self.problems_repo = kwargs["problems_repo"]
-        self.solutions_repo = kwargs["solutions_repo"]
+        self.app_id = os.getenv("APP_ID")
+        self.install_id = os.getenv("INSTALL_ID")
+        self.private_key = os.getenv("PRIVATE_KEY")
+        self.problems_repo = os.getenv("PROBLEMS_REPO")
+        self.solutions_repo = os.getenv("SOLUTIONS_REPO")

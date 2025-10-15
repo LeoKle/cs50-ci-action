@@ -22,12 +22,12 @@ inputs:
 runs:
   using: "docker"
   image: "Dockerfile"
-  args:
-    - ${{ inputs.app-id }}
-    - ${{ inputs.install-id }}
-    - ${{ inputs.private-key }}
-    - ${{ inputs.problems-repository }}
-    - ${{ inputs.solutions-repository }}
+  env:
+    APP_ID: ${{ inputs.app-id }}
+    INSTALL_ID: ${{ inputs.install-id }}
+    PRIVATE_KEY: ${{ inputs.private-key }}
+    PROBLEMS_REPO: ${{ inputs.problems-repository }}
+    SOLUTIONS_REPO: ${{ inputs.solutions-repository }}
 
 branding:
   icon: "check-circle"
