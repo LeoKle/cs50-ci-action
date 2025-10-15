@@ -21,7 +21,7 @@ class Settings(metaclass=SingletonMeta):
 
         # for feedback on PRs
         self.github_repo = os.getenv("GITHUB_REPOSITORY")
-        self.pr_number = os.getenv("PR_NUMBER")  # for debug only, uncomment below
+        # self.pr_number = os.getenv("PR_NUMBER")  # for debug only, uncomment below
 
         event_path = os.getenv("GITHUB_EVENT_PATH")
         if event_path and Path(event_path).exists():

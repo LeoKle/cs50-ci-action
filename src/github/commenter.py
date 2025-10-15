@@ -53,6 +53,8 @@ class GitHubPRCommenter:
         """
         Create or update a comment on the PR, unless commenting is disabled.
         """
+        if self.disabled:
+            return None
 
         existing_comment = self._get_existing_comment()
         comments_url = f"{self.api_base}/issues/{self.pr_number}/comments"
