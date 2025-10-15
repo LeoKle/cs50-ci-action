@@ -1,10 +1,15 @@
 from github.auth import GithubAuthProvider
+from github.cloner import GithubRepoCloner
 from settings import Settings
 
 if __name__ == "__main__":
     Settings()
 
-    GithubAuthProvider()
+    gh_token = GithubAuthProvider().get_token()
 
-    print("App ID:", Settings().app_id)
-    print("Install ID:", Settings().install_id)
+    problems_repo = GithubRepoCloner(
+        token=gh_token, repository=Settings().problems_repo, branch=Settings().problems_branch
+    )
+    solutions_repo = GithubRepoCloner(
+        token=gh_token, repository=Settings().solutions_repo, branch=Settings().solutions_branch
+    )
