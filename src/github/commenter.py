@@ -11,7 +11,6 @@ class GitHubPRCommenter:
         """
         self.settings = Settings()
         self.token = token
-        self.username = username or "github-actions[bot]"
         self.disabled = False
 
         if not self.settings.github_repo or not self.settings.pr_number:
@@ -33,7 +32,7 @@ class GitHubPRCommenter:
 
     def _get_existing_comment(self):
         """
-        Find an existing comment on this PR made by this bot account.
+        Find an existing comment on this PR created by this GitHub App.
         """
         if self.disabled:
             return None
@@ -44,16 +43,16 @@ class GitHubPRCommenter:
         comments = response.json()
 
         for comment in comments:
-            if comment["user"]["login"] == self.username:
+            app_info = comment.get("performed_via_github_app")
+            if app_info and app_info.get("id") == self.settings.app_id:
                 return comment
+
         return None
 
     def post_comment(self, body):
         """
         Create or update a comment on the PR, unless commenting is disabled.
         """
-        if self.disabled:
-            return
 
         existing_comment = self._get_existing_comment()
         comments_url = f"{self.api_base}/issues/{self.pr_number}/comments"

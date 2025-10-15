@@ -11,8 +11,8 @@ load_dotenv()
 
 class Settings(metaclass=SingletonMeta):
     def __init__(self, **kwargs):
-        self.app_id = os.getenv("APP_ID")
-        self.install_id = os.getenv("INSTALL_ID")
+        self.app_id = int(os.getenv("APP_ID"))
+        self.install_id = int(os.getenv("INSTALL_ID"))
         self.private_key = os.getenv("PRIVATE_KEY_B64")
         self.problems_repo = os.getenv("PROBLEMS_REPO")
         self.problems_branch = os.getenv("PROBLEMS_BRANCH")
@@ -21,6 +21,7 @@ class Settings(metaclass=SingletonMeta):
 
         # for feedback on PRs
         self.github_repo = os.getenv("GITHUB_REPOSITORY")
+        self.pr_number = os.getenv("PR_NUMBER")  # for debug only, uncomment below
 
         event_path = os.getenv("GITHUB_EVENT_PATH")
         if event_path and Path(event_path).exists():
