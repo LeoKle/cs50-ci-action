@@ -13,4 +13,4 @@ COPY uv.lock .
 RUN uv sync --frozen --no-cache
 ENV PATH="/app/.venv/bin:$PATH"
 
-ENTRYPOINT ["python", "./src/main.py"]
+ENTRYPOINT ["python", "/app/src/main.py"]
