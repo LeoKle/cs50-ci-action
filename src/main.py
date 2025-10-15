@@ -22,6 +22,7 @@ if __name__ == "__main__":
     problem_tester.test_problems()
 
     results = problem_tester.results
+    results = sorted(results, key=lambda r: (r.problem_name or "", r.solution_name or ""))
     passed = sum(1 for r in results if r.status == "ok")
     failed = sum(1 for r in results if r.status == "fail")
     warns = sum(1 for r in results if r.status == "warning")
