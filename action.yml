@@ -15,8 +15,14 @@ inputs:
   problems-repository: 
     description: "Full name of the repository containing the problems tests (e.g. cs50/problems)"
     required: true
+  problems-branch: 
+    description: "Branch name of the problems repository to use (e.g. main)"
+    required: true
   solutions-repository:
     description: "Full name of the repository containing the solution (e.g. cs50/solutions)"
+    required: true
+  solutions-branch: 
+    description: "Branch name of the solutions repository to use (e.g. main)"
     required: true
 
 runs:
@@ -27,7 +33,9 @@ runs:
     INSTALL_ID: ${{ inputs.install-id }}
     PRIVATE_KEY: ${{ inputs.private-key }}
     PROBLEMS_REPO: ${{ inputs.problems-repository }}
+    PROBLEMS_BRANCH: ${{ inputs.problems-branch }}
     SOLUTIONS_REPO: ${{ inputs.solutions-repository }}
+    SOLUTIONS_BRANCH: ${{ inputs.solutions-branch }}
 
 branding:
   icon: "check-circle"

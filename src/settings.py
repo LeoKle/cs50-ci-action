@@ -13,4 +13,6 @@ class Settings(metaclass=SingletonMeta):
         self.install_id = os.getenv("INSTALL_ID")
         self.private_key = os.getenv("PRIVATE_KEY_B64")
         self.problems_repo = os.getenv("PROBLEMS_REPO")
+        self.problems_branch = os.getenv("PROBLEMS_BRANCH")
         self.solutions_repo = os.getenv("SOLUTIONS_REPO")
+        self.solutions_branch = os.getenv("SOLUTIONS_BRANCH")
