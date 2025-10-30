@@ -26,8 +26,8 @@ inputs:
     required: true
 
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: docker
+  image: docker://ghcr.io/leokle/cs50-ci-action:latest
   env:
     APP_ID: ${{ inputs.app-id }}
     INSTALL_ID: ${{ inputs.install-id }}

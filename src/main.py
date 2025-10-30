@@ -33,6 +33,10 @@ if __name__ == "__main__":
     print(f"🔴\tFailed: {failed}")
     print(f"⚠️\tWarnings: {warns}")
 
+    for r in results:
+        if r.status == "fail":
+            print(r.reason)
+
     markdown = build_results_markdown(results)
 
     commenter = GitHubPRCommenter(token=gh_token)
