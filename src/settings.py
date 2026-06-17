@@ -11,7 +11,7 @@ load_dotenv()
 
 class Settings(metaclass=SingletonMeta):
     def __init__(self, **kwargs):
-        self.app_id = int(os.getenv("APP_ID"))
+        self.app_id = str(os.getenv("APP_ID"))
         self.install_id = int(os.getenv("INSTALL_ID"))
         self.private_key = os.getenv("PRIVATE_KEY_B64")
         self.problems_repo = os.getenv("PROBLEMS_REPO")
