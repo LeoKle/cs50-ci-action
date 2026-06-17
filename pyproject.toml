@@ -8,7 +8,7 @@ dependencies = [
     "check50>=3.4.0",
     "cryptography>=46.0.2",
     "dotenv>=0.9.9",
-    "pydantic>=2.12.2",
+    "pydantic>=2.13.4",
     "pyjwt>=2.10.1",
     "requests>=2.32.5",
 ]
