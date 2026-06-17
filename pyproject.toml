@@ -1,6 +1,6 @@
 [project]
 name = "cs50-ci-action"
-version = "0.1.0"
+version = "0.1.1"
 description = "Testing pipeline for CS50 problem sets"
 readme = "README.md"
 requires-python = ">=3.12"
