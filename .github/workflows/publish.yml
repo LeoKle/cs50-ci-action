@@ -1,8 +1,5 @@
 name: Publish Docker Image
 on:
-  push:
-    branches:
-      - main
   release:
     types: [published]
 
@@ -20,16 +17,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Read version from pyproject.toml
-        id: version
-        run: |
-          VERSION=$(grep -m1 '^version' pyproject.toml | sed -E 's/version[[:space:]]*=[[:space:]]*"(.*)"/\1/')
-          if [ -z "$VERSION" ]; then
-            echo "Could not parse version from pyproject.toml" >&2
-            exit 1
-          fi
-          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-
       - name: Log in to GHCR
         uses: docker/login-action@v4
         with:
@@ -44,5 +31,5 @@ jobs:
           push: true
           tags: |
             ghcr.io/leokle/cs50-ci-action:latest
-            ghcr.io/leokle/cs50-ci-action:${{ github.sha }}
-            ghcr.io/leokle/cs50-ci-action:${{ steps.version.outputs.version }}
+            ghcr.io/leokle/cs50-ci-action:sha-${{ github.sha }}
+            ghcr.io/leokle/cs50-ci-action:${{ github.event.release.tag_name }}
