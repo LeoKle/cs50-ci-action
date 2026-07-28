@@ -46,7 +46,7 @@ select = [
     "TRY",   # tryceratops
     "FURB",  # refurb
 ]
-ignore = ["COM812"]
+ignore = ["missing-trailing-comma"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
