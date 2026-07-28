@@ -22,8 +22,10 @@ def build_results_markdown(results: list[Result]) -> str:
         reason_clean = clean_ansi(r.reason or "").replace("\n", " ")
         message = f"<details><summary>Reason</summary>{reason_clean}</details>" if r.reason else ""
 
+        problem_name = r.problem_name
+        solution_name = r.solution_name or ""
         md_lines.append(
-            f"| {r.problem_name} | {r.solution_name or ''} | {r.solution_type or ''} | {emoji} | {message} |"
+            f"| {problem_name} | {solution_name} | {r.solution_type or ''} | {emoji} | {message} |"
         )
 
     # Add summary at the bottom
