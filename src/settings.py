@@ -29,7 +29,7 @@ class Settings(metaclass=SingletonMeta):
                 with Path.open(event_path, "r") as f:
                     event = json.load(f)
                 self.pr_number = event.get("pull_request", {}).get("number")
-            except Exception as e:
+            except Exception as e:  # ruff: ignore[blind-except]
                 print(f"⚠️ Warning: Could not read event file ({event_path}): {e}")
         else:
             print("⚠️ No GITHUB_EVENT_PATH found — running in local/test mode.")
