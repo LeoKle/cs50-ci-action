@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["pytest>=9.1.1", "pytest-cov>=7.1.0", "ruff>=0.15.22"]
+dev = ["pytest>=9.1.1", "pytest-cov>=7.1.0", "ruff>=0.16.0"]
 
 [tool.ruff]
 line-length = 100
@@ -46,7 +46,7 @@ select = [
     "TRY",   # tryceratops
     "FURB",  # refurb
 ]
-ignore = ["COM812"]
+ignore = ["missing-trailing-comma"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
