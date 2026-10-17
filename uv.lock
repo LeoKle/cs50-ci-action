@@ -174,7 +174,7 @@ wheels = [
 
 [[package]]
 name = "check50"
-version = "3.4.0"
+version = "3.5.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "attrs" },
@@ -188,9 +188,9 @@ dependencies = [
     { name = "setuptools" },
     { name = "termcolor" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b4/60/377207282d80f66aae36fc0021af49dd2e00b07efb2568f68b9642ffe9ad/check50-3.4.0.tar.gz", hash = "sha256:8a17a3ce74c1cdb0cefd43ad1f55ca488ce2c62f71998886209a757f094be89a", size = 40349, upload-time = "2025-07-23T07:12:25.914Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/17/8a/7c7f989b6b9929167bd36893dac7cf9c028900270d33c27334491c542146/check50-3.5.0.tar.gz", hash = "sha256:dd76d06ea083cade0674c684338b49d9d8227b4846844357a51ae338b191ec9d", size = 40426, upload-time = "2026-10-13T08:26:06.845Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/12/ed/e999d2fd6a3df29365474cae82527e25d99765d11b86df06f443295dc6e7/check50-3.4.0-py3-none-any.whl", hash = "sha256:cab7c38e6dbf547ad1cc7995dab13f063dbeba28e3ffc0f09c29f16a3663f8e8", size = 44113, upload-time = "2025-07-23T07:12:24.585Z" },
+    { url = "https://files.pythonhosted.org/packages/26/28/53d2b279a032e927e4abffd2d638e77b66d972514140800a25f0d456de7f/check50-3.5.0-py3-none-any.whl", hash = "sha256:391d7b142fbc7f1ef45e35214a9fed25f077ebd9ef2d29514e3d86623108b73f", size = 44128, upload-time = "2026-10-13T08:26:05.813Z" },
 ]
 
 [[package]]
